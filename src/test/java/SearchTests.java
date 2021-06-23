@@ -4,6 +4,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+
 public class SearchTests extends BaseUI {
     String currentUrlSearch;
 
@@ -27,30 +28,8 @@ public class SearchTests extends BaseUI {
        // WebElement dropDownListSortByAge = driver.findElement(Locators.DROP_DOWN_LIST_SORT_AGE);
 
 
-       // WebElement dropDownListSortBy = driver.findElement(Locators.DROP_DOWN_LIST_SORT_BY);
-    //   getDropDownListByValue(dropDownListSortBy, value:"date_create");
-
-
-
-    }
-
-    public void getDropDownListByIndex(WebElement element , int index) {
-        Select select = new Select (element);
-        select.selectByIndex(index);
-    }
-
-    public void getDropDownListByText(WebElement element, String text) {
-        Select select = new Select(element);
-        select.selectByVisibleText(text);
-
-    }
-
-    public void getDropDownListByValue(WebElement element, String value){
-        Select select = new Select(element);
-        select.selectByValue(value);
-
-
-
+        WebElement dropDownListSortBy = driver.findElement(Locators.DROP_DOWN_LIST_SORT_BY);
+        searchPage.getDropDownListByValue(dropDownListSortBy, "date_create");
 
 
 
