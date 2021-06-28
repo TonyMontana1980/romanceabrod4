@@ -20,6 +20,7 @@ public class Locators {
     public static final  By MONTH_FIELD = By.xpath("//li[@data-handler='selectMonth']//a[text()='May']");
     public static final  By YEAR_FIELD = By.xpath("//li[@data-handler='selectYear']//a[text()='2001']");
 
+    public static final By CHECK_BOX = By.cssSelector("input#confirmation");
 //Search page
     public static final By LINK_SEARCH = By.xpath("//a[@href='https://romanceabroad.com/users/search']");
     public static final By DROP_DOWN_LIST_SORT_BY = By.xpath("//div[@class='form-inline']//select");
