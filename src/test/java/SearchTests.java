@@ -20,16 +20,42 @@ public class SearchTests extends BaseUI {
             e.printStackTrace();
         }
 
-       // Select select = new Select(driver.findElement(By.xpath("//div[@class='form-inline']//select")));
+        // Select select = new Select(driver.findElement(By.xpath("//div[@class='form-inline']//select")));
         Select select = new Select(driver.findElement(By.xpath("//div[@class ='col-xs-5 no-padding-left']//select[@id='age_min']")));
         //select.selectByValue("date_created");
         select.selectByValue("22");
 
-       // WebElement dropDownListSortByAge = driver.findElement(Locators.DROP_DOWN_LIST_SORT_AGE);
+        // WebElement dropDownListSortByAge = driver.findElement(Locators.DROP_DOWN_LIST_SORT_AGE);
 
 
         WebElement dropDownListSortBy = driver.findElement(Locators.DROP_DOWN_LIST_SORT_BY);
         searchPage.getDropDownListByValue(dropDownListSortBy, "date_create");
+
+    }
+
+    @Test
+    public void testSearchPage1() {
+        Assert.assertTrue(driver.findElement(Locators.LINK_SEARCH).isDisplayed(), "Element is not displayed");
+        driver.findElement(Locators.LINK_SEARCH).click();
+        currentUrlSearch = driver.getCurrentUrl();
+        System.out.println(currentUrlSearch);
+       // Assert.assertEquals(currentUrlSearch, Data.expectedUrlSearch);
+        softAssert.assertEquals(currentUrlSearch, Data.expectedUrlSearch, "Url is wrong");
+        softAssert.assertEquals(currentUrlSearch, Data.expectedUrlSearch, "Url is wrong");
+        WebElement dropDownListSortBy = driver.findElement(Locators.DROP_DOWN_LIST_SORT_BY);
+        searchPage.getDropDownListByValue(dropDownListSortBy, "date_created");
+
+    }
+
+    public  void  validateAssertions(){
+    Assert.assertEquals("Web", "Web is");
+
+    Assert.assertTrue(driver.findElement(By.xpath("//a")).isSelected(), "Element is not displayed");
+
+    Assert.fail("Element is not displayed");
+
+
+
 
 
 

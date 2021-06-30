@@ -22,12 +22,11 @@ public class MainPage  extends BaseActions {
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(Locators.TEXT_FIELD_PASSWORD)));
         driver.findElement(Locators.TEXT_FIELD_PASSWORD).sendKeys(Data.password);
         wait.until(ExpectedConditions.elementToBeClickable(Locators.BUTTON_NEXT));
-
+       driver.findElement(Locators.BUTTON_NEXT).click();
     }
 
     public void completeSecondPartOfRegistration(){
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-        driver.findElement(Locators.BUTTON_NEXT).click();
         driver.findElement(Locators.TEXT_FIELD_NICKNAME).sendKeys(generateNewNumber(Data.nickname, 5));
         driver.findElement(By.cssSelector("#daySelect")).click();
         driver.findElement(Locators.DAY_FIELD).click();
@@ -40,7 +39,7 @@ public class MainPage  extends BaseActions {
         checkboxConfirmation.click();
 
 
-    }
+        }
 
 }
 
