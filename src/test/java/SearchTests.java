@@ -29,7 +29,7 @@ public class SearchTests extends BaseUI {
 
 
         WebElement dropDownListSortBy = driver.findElement(Locators.DROP_DOWN_LIST_SORT_BY);
-        searchPage.getDropDownListByValue(dropDownListSortBy, "date_create");
+        searchPage.getDropDownListByValue(dropDownListSortBy, "date_created");
 
     }
 

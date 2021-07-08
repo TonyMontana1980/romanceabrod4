@@ -7,6 +7,8 @@ public class SearchPage extends BaseActions {
         super(driver, wait);
     }
 
+    public void clickSearchButton() {
+    }
 }
 
 
