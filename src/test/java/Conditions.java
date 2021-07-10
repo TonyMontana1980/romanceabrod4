@@ -4,7 +4,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -102,26 +101,85 @@ public class Conditions extends BaseUI {
         }
 
 
-       List<WebElement> list = driver.findElements(By.xpath("//a"));
-        for (int i = 0; i <list.size(); i++) {
+        List<WebElement> list = driver.findElements(By.xpath("//a"));
+        for (int i = 0; i < list.size(); i++) {
             if (list.get(i).getText().contains("Gifts")) {
                 searchPage.clickSearchButton();
 
-                 }
+            }
         }
 
         List<WebElement> list1 = driver.findElements(By.xpath("//a"));
-        for (int i = 0; i <list1.size(); i++) {
-            if (i == 2){
+        for (int i = 0; i < list1.size(); i++) {
+            if (i == 2) {
                 searchPage.clickSearchButton();
             }
-       }
-
+        }
 
     }
 
-}
+    @Test
+    public void test7() {
+        String phrase = "melon is inside list";
+        List<String> crunchifyList1 = new ArrayList<>(Arrays.asList("apple", "kiwi", phrase));
+        crunchifyList1.add("melon");
+        System.out.println(crunchifyList1);
 
+        for (int i = 0; i < crunchifyList1.size(); i++) {
+            String element = crunchifyList1.get(i);
+            System.out.println(i + "iteration");
+            if (element.contains("apple")) {
+                System.out.println(phrase);
+                break;
+            }
+            if (element.equals("orange")) {
+                System.out.println("Orange");
+            }
+            if (element.contains("i")) {
+                System.out.println("IIIII");
+            } else {
+                System.out.println("Bad loop");
+            }
+
+        }
+    }
+
+    @Test
+    public void test8() {
+        String actualTitle;
+        String actualUrlPrettyWomen;
+        String expectedUrlPrettyWomen = "https://romanceabroad.com/users/search";
+        String expectedTitleHowWeWork = "Ukrainian women for marriage";
+        String expectedTitlePrettyWomen = "Single Ukrainian women online";
+        List<WebElement> links = driver.findElements(Locators.TAB_OF_MAIN_PAGE);
+        System.out.println(links.size());
+
+        for (int i = 0; i < links.size(); i++) {
+            String info = links.get(i).getText();
+            System.out.println(info);
+            links.get(i).click();
+
+            if (info.contains("WORK")) {
+                actualTitle = driver.findElement(Locators.TITLE_OF_PAGE).getText();
+                Assert.assertEquals(expectedTitleHowWeWork, actualTitle);
+            }
+            if (info.contains("PRETTY WOMEN")) {
+                actualTitle = driver.findElement(Locators.TITLE_OF_PAGE).getText();
+                actualUrlPrettyWomen = driver.getCurrentUrl();
+                Assert.assertEquals(expectedTitlePrettyWomen, actualTitle);
+                Assert.assertEquals(actualUrlPrettyWomen, expectedUrlPrettyWomen);
+                driver.findElement(By.xpath("//a[@class='g-pic-border g-rounded']")).isDisplayed();
+
+            }
+
+            driver.get(Data.Main_Url);
+            links = driver.findElements(Locators.TAB_OF_MAIN_PAGE);
+
+        }
+
+
+    }
+}
 
 
 

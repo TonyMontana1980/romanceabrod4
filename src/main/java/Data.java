@@ -10,5 +10,6 @@ public class Data {
 
     public static final String expectedUrlMedia = "https://romanceabroad.com/media/index";
     public static final String expectedUrlSearch = "https://romanceabroad.com/users/search";
+    public static final String Main_Url = "https://romanceabroad.com";
 
 }
