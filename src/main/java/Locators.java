@@ -31,7 +31,8 @@ public class Locators {
 
     public static final By  TITLE_OF_PAGE = By.xpath("//h1");
     public static final By  TAB_OF_MAIN_PAGE = By.xpath("//ul[@class='navbar-nav']//li");
-
+    public static final By  IMAGES = By.xpath("//a[@class='g-pic-border g-rounded']");
+    public static final By BLOG_LINK = By.xpath("//a[@href='https://romanceabroad.com/content/view/blog']");
 
 }
 

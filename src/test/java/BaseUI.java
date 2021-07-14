@@ -1,6 +1,4 @@
-import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.WebDriver;
-
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
@@ -10,19 +8,18 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.asserts.SoftAssert;
-
 import java.lang.reflect.Method;
 
 public class BaseUI {
     WebDriver driver;
     WebDriverWait wait;
-    String mainUrl = "https://romanceabroad.com/";
     MainPage mainPage;
     SearchPage searchPage;
     SoftAssert softAssert = new SoftAssert();
 
 
     @BeforeMethod
+
     @Parameters("browser")
     public void setup(@Optional("chrome") String browser, Method method) {
 
@@ -56,7 +53,7 @@ public class BaseUI {
                mainPage = new MainPage(driver, wait);
                searchPage = new SearchPage(driver, wait);
                driver.manage().window().maximize();
-               driver.get(mainUrl);
+               driver.get(Data.mainUrl);
 
     }
 
