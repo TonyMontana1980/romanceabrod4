@@ -39,7 +39,7 @@ public class SearchTests extends BaseUI {
         driver.findElement(Locators.LINK_SEARCH).click();
         currentUrlSearch = driver.getCurrentUrl();
         System.out.println(currentUrlSearch);
-       // Assert.assertEquals(currentUrlSearch, Data.expectedUrlSearch);
+        // Assert.assertEquals(currentUrlSearch, Data.expectedUrlSearch);
         softAssert.assertEquals(currentUrlSearch, Data.expectedUrlSearch, "Url is wrong");
         softAssert.assertEquals(currentUrlSearch, Data.expectedUrlSearch, "Url is wrong");
         WebElement dropDownListSortBy = driver.findElement(Locators.DROP_DOWN_LIST_SORT_BY);
@@ -47,17 +47,26 @@ public class SearchTests extends BaseUI {
 
     }
 
-    public  void  validateAssertions(){
-    Assert.assertEquals("Web", "Web is");
+    public void validateAssertions() {
+        Assert.assertEquals("Web", "Web is");
 
-    Assert.assertTrue(driver.findElement(By.xpath("//a")).isSelected(), "Element is not displayed");
+        Assert.assertTrue(driver.findElement(By.xpath("//a")).isSelected(), "Element is not displayed");
 
-    Assert.fail("Element is not displayed");
+        Assert.fail("Element is not displayed");
+
+    }
 
 
+    @Test
+    public void selectRandomDropDownList() {
+        driver.findElement(Locators.LINK_SEARCH).click();
 
-
-
+        int sizeOfDropDownListSortBy = searchPage.getSizeDropDownList(Locators.DROP_DOWN_MAX_AGE);
+        System.out.println(sizeOfDropDownListSortBy);
+        for (int i = 0; i < sizeOfDropDownListSortBy; i++) {
+            searchPage.selectItemDropDownRandomOption(Locators.DROP_DOWN_MAX_AGE, "Sort by");
+            mainPage.javaWaitSec(3);
+        }
 
     }
 }

@@ -5,8 +5,7 @@ import org.testng.annotations.Test;
 public class MainPageTest1 extends BaseUI {
 
 
-
-   @Test
+    @Test
     public void test2() throws InterruptedException {
         Thread.sleep(5000);
         WebElement ele = driver.findElement(By.xpath("//iframe[@src='https://www.youtube.com/embed/RRECuJzm3IY?start=85']"));
@@ -16,4 +15,27 @@ public class MainPageTest1 extends BaseUI {
 
     }
 
-}
+    @Test
+    public void testLinksOnMainPage() {
+        mainPage.checkLinksOnWebPage("//a", "href");
+        mainPage.checkLinksOnWebPage("//img", "src");
+        driver.findElement(Locators.LINK_SEARCH);
+        mainPage.checkLinksOnWebPage("//a", "href");
+        mainPage.checkLinksOnWebPage("//img", "src");
+
+    }
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
