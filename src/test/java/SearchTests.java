@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 public class SearchTests extends BaseUI {
     String currentUrlSearch;
 
-    @Test
+   /* @Test
     public void testSearchPage() {
         driver.findElement(Locators.LINK_SEARCH).click();
         currentUrlSearch = driver.getCurrentUrl();
@@ -21,7 +21,8 @@ public class SearchTests extends BaseUI {
         }
 
         // Select select = new Select(driver.findElement(By.xpath("//div[@class='form-inline']//select")));
-        Select select = new Select(driver.findElement(By.xpath("//div[@class ='col-xs-5 no-padding-left']//select[@id='age_min']")));
+        Select select = new Select(driver.findElement(Locators.DROP_DOWN_LIST_SORT_AGE));
+        Select select = new Select(driver.findElement(Locators.DROP_DOWN_LIST_SORT_AGE));
         //select.selectByValue("date_created");
         select.selectByValue("22");
 
@@ -31,7 +32,7 @@ public class SearchTests extends BaseUI {
         WebElement dropDownListSortBy = driver.findElement(Locators.DROP_DOWN_LIST_SORT_BY);
         searchPage.getDropDownListByValue(dropDownListSortBy, "date_created");
 
-    }
+    }*/
 
     @Test
     public void testSearchPage1() {
@@ -67,6 +68,33 @@ public class SearchTests extends BaseUI {
             searchPage.selectItemDropDownRandomOption(Locators.DROP_DOWN_MAX_AGE, "Sort by");
             mainPage.javaWaitSec(3);
         }
+    }
+
+        @Test
+        public void testSearchPage2() {
+            driver.findElement(Locators.LINK_SEARCH).click();
+            currentUrlSearch = driver.getCurrentUrl();
+            System.out.println(currentUrlSearch);
+            Assert.assertEquals(currentUrlSearch, Data.expectedUrlSearch);
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            // Select select = new Select(driver.findElement(By.xpath("//div[@class='form-inline']//select")));
+            //Select select = new Select(driver.findElement(Locators.DROP_DOWN_LIST_SORT_AGE));
+            Select select = new Select(driver.findElement(Locators.DROP_DOWN_MAX_AGEX));
+
+            select.selectByValue("22");
+
+
+
+            WebElement dropDownListSortBy = driver.findElement(Locators.DROP_DOWN_LIST_SORT_BY);
+            searchPage.getDropDownListByValue(dropDownListSortBy, "date_created");
+
+        }
+
+
 
     }
-}

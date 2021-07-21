@@ -189,9 +189,26 @@ public class Conditions extends BaseUI {
 
     @Test
     public void test9() {
-       // mainPage.ajaxClick(Locators.TAB_OF_MAIN_PAGE,  3);
-   //mainPage.performClick(Locators.TAB_OF_MAIN_PAGE, 4);
-        mainPage.scrollToBottomOfPage();
+      //  mainPage.ajaxClick(Locators.TAB_OF_MAIN_PAGE,  3);
+  // mainPage.performClick(Locators.TAB_OF_MAIN_PAGE, 5);
+     //mainPage.javaWaitSec(3);
+   //mainPage.scrollToBottomOfPage();
+        //driver.findElement(Locators.TAB_OF_JOIN_TODAY).click();
+        //driver.findElement(Locators.TAB_OF_PHONE).click();
+       // driver.findElement(Locators.TAB_OF_EMAIL).click();
+        //driver.findElement(Locators.TAB_OF_YOUTUBE).click();
+        //driver.findElement(Locators.TAB_OF_FACEBOOK).click();
+       // driver.findElement(Locators.TAB_OF_PAYPAL).click();
+        //driver.findElement(Locators.HOW_WE_WORK).click();
+        //driver.findElement(Locators.PRETTY_WOMEN).click();
+       // driver.findElement(Locators.PHOTOS).click();
+        //driver.findElement(Locators.GIFTS).click();
+        //driver.findElement(Locators.HOME).click();
+        //driver.findElement(Locators.TOUR_TO_UKRAINE).click();
+        //driver.findElement(Locators.BLOG).click();
+       // driver.findElement(Locators.SIGN_IN).click();
+        driver.findElement(Locators.REGISTRATION_B).click();
+
 
     }
 
