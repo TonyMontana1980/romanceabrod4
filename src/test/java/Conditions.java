@@ -54,7 +54,7 @@ public class Conditions extends BaseUI {
 
     }
 
-    /*@Test
+    @Test
     public void test4(){
 
         mainPage.clickJoinButton();
@@ -69,7 +69,7 @@ public class Conditions extends BaseUI {
 
         }
 
-    }*/
+    }
     @Test
     public void test5() {
         List<WebElement> links = driver.findElements(By.xpath("//ul[@class='navbar-nav']//li"));

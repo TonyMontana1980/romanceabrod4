@@ -8,6 +8,12 @@ import org.testng.annotations.Test;
 public class SearchTests extends BaseUI {
     String currentUrlSearch;
 
+    public static final boolean testCase11 = true;
+    public static final boolean testCase12 = true;
+    public static final boolean testCase13 = true;
+
+
+
    /* @Test
     public void testSearchPage() {
         driver.findElement(Locators.LINK_SEARCH).click();
@@ -34,10 +40,10 @@ public class SearchTests extends BaseUI {
 
     }*/
 
-    @Test
-    public void testSearchPage1() {
+    @Test (priority = 2, enabled = testCase12, groups = {"ie", "user","admin"})
+    public void testSearchPage1TestCase12() {
         Assert.assertTrue(driver.findElement(Locators.LINK_SEARCH).isDisplayed(), "Element is not displayed");
-        driver.findElement(Locators.LINK_SEARCH).click();
+        searchPage.clickSearchButton();
         currentUrlSearch = driver.getCurrentUrl();
         System.out.println(currentUrlSearch);
         // Assert.assertEquals(currentUrlSearch, Data.expectedUrlSearch);
@@ -45,23 +51,20 @@ public class SearchTests extends BaseUI {
         softAssert.assertEquals(currentUrlSearch, Data.expectedUrlSearch, "Url is wrong");
         WebElement dropDownListSortBy = driver.findElement(Locators.DROP_DOWN_LIST_SORT_BY);
         searchPage.getDropDownListByValue(dropDownListSortBy, "date_created");
+        softAssert.assertAll();
+    }
+@Test (priority = 3, enabled = testCase13, groups = {"user","admin"})
+    public void verificationsWebTestCase13() {
+        Assert.assertEquals("Web", "Web");
+        // Assert.assertTrue(driver.findElement(By.xpath("//a")).isSelected(), "Element is not displayed");
+      // Assert.fail("Element is not displayed");
 
     }
 
-    public void validateAssertions() {
-        Assert.assertEquals("Web", "Web is");
 
-        Assert.assertTrue(driver.findElement(By.xpath("//a")).isSelected(), "Element is not displayed");
-
-        Assert.fail("Element is not displayed");
-
-    }
-
-
-    @Test
-    public void selectRandomDropDownList() {
-        driver.findElement(Locators.LINK_SEARCH).click();
-
+    @Test (priority = 1, enabled = testCase11, groups =  {"user","admin"})
+    public void selectRandomDropDownListTestsOnSearchPageCase11() {
+        searchPage.clickSearchButton();
         int sizeOfDropDownListSortBy = searchPage.getSizeDropDownList(Locators.DROP_DOWN_MAX_AGE);
         System.out.println(sizeOfDropDownListSortBy);
         for (int i = 0; i < sizeOfDropDownListSortBy; i++) {
@@ -72,7 +75,7 @@ public class SearchTests extends BaseUI {
 
         @Test
         public void testSearchPage2() {
-            driver.findElement(Locators.LINK_SEARCH).click();
+            searchPage.clickSearchButton();
             currentUrlSearch = driver.getCurrentUrl();
             System.out.println(currentUrlSearch);
             Assert.assertEquals(currentUrlSearch, Data.expectedUrlSearch);
@@ -84,12 +87,9 @@ public class SearchTests extends BaseUI {
 
             // Select select = new Select(driver.findElement(By.xpath("//div[@class='form-inline']//select")));
             //Select select = new Select(driver.findElement(Locators.DROP_DOWN_LIST_SORT_AGE));
-            Select select = new Select(driver.findElement(Locators.DROP_DOWN_MAX_AGEX));
+           // Select select = new Select(driver.findElement(Locators.DROP_DOWN_MAX_AGEX));
 
-            select.selectByValue("22");
-
-
-
+           // select.selectByValue("22");
             WebElement dropDownListSortBy = driver.findElement(Locators.DROP_DOWN_LIST_SORT_BY);
             searchPage.getDropDownListByValue(dropDownListSortBy, "date_created");
 

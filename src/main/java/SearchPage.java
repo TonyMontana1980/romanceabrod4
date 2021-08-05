@@ -8,6 +8,7 @@ public class SearchPage extends BaseActions {
     }
 
     public void clickSearchButton() {
+        driver.findElement(Locators.LINK_SEARCH).click();
     }
 }
 

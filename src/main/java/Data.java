@@ -1,6 +1,8 @@
 public class Data {
 
- public static final String mainUrl = "https://romanceabroad.com/";
+    public static final String mainUrl = "https://romanceabroad.com/";
+
+
    //Registration data
     public static final String email = "12@gmail.com";
     public static final String password = "1188Bux@";

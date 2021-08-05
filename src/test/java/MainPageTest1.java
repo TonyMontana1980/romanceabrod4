@@ -2,6 +2,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 public class MainPageTest1 extends BaseUI {
 
 
@@ -25,7 +27,17 @@ public class MainPageTest1 extends BaseUI {
 
     }
 
+ @Test
+    public  void smokeTestMainPage(){
+     List<WebElement> mainTabs = driver.findElements(By.xpath("//ul[@class='navbar-nav']//li/a"));
+     for (int i = 0; i <mainTabs.size(); i++) {
+         mainTabs.get(i).click();
+         driver.get(Data.Main_Url);
+         mainTabs = driver.findElements(By.xpath("//ul[@class='navbar-nav']//li/a"));
 
+
+     }
+ }
 
         }
 
