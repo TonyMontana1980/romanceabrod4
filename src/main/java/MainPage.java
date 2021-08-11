@@ -1,46 +1,65 @@
-import org.openqa.selenium.By;
+
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+
 import java.util.concurrent.TimeUnit;
 
-public class MainPage  extends BaseActions {
+public class MainPage extends BaseActions {
 
     public MainPage(WebDriver driver, WebDriverWait wait) {
         super(driver, wait);
     }
 
-    public void clickJoinButton(){
+    public void clickJoinButton() {
         driver.findElement(Locators.BUTTON_REGISTRATION).click();
     }
 
-    public void completeFirstOfRegistration(){
+    public void completeFirstOfRegistration(String email, String password) {
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-        driver.findElement(Locators.TEXT_FIELD_EMAIL).sendKeys(Data.email);
+        driver.findElement(Locators.TEXT_FIELD_EMAIL).sendKeys(email);
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(Locators.TEXT_FIELD_PASSWORD)));
-        driver.findElement(Locators.TEXT_FIELD_PASSWORD).sendKeys(Data.password);
+        driver.findElement(Locators.TEXT_FIELD_PASSWORD).sendKeys(password);
         wait.until(ExpectedConditions.elementToBeClickable(Locators.BUTTON_NEXT));
-       driver.findElement(Locators.BUTTON_NEXT).click();
+        driver.findElement(Locators.BUTTON_NEXT).click();
     }
 
-    public void completeSecondPartOfRegistration(){
+    public void completeSecondPartOfRegistration(String nickname, String phone, String month, String day,
+                                                 String year, String city, String location) {
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-        driver.findElement(Locators.TEXT_FIELD_NICKNAME).sendKeys(generateNewNumber(Data.nickname, 5));
-        driver.findElement(By.cssSelector("#daySelect")).click();
-        driver.findElement(Locators.DAY_FIELD).click();
-        driver.findElement(By.cssSelector("#monthSelect")).click();
-        driver.findElement(Locators.MONTH_FIELD).click();
-        driver.findElement(By.cssSelector("#yearSelect")).click();
-        driver.findElement(Locators.YEAR_FIELD).click();
-        driver.findElement(Locators.TEXT_FIELD_PHONE).sendKeys(Data.phone);
-        WebElement checkboxConfirmation = driver.findElement(By.cssSelector("input#confirmation"));
-        checkboxConfirmation.click();
+        driver.findElement(Locators.TEXT_FIELD_NICKNAME).sendKeys(nickname);
 
+        driver.findElement(Locators.LIST_DAYS).click();
+        clickValueOfLists(Locators.LIST_VALUE_DAY, day);
 
-        }
+        driver.findElement(Locators.LIST_MONTHS).click();
+        clickValueOfLists(Locators.LIST_VALUE_MONTH, month);
+
+        driver.findElement(Locators.LIST_YEARS).click();
+        clickValueOfLists(Locators.LIST_VALUE_YEAR, year);
+
+        driver.findElement(Locators.TEXT_FIELD_PHONE).sendKeys(phone);
+        driver.findElement(Locators.CHECKBOX_CONFIRMATION).click();
+
+        driver.findElement(Locators.AUTOFILLING_FORM_LOCATION).sendKeys(city);
+        clickValueOfLists(Locators.LIST_VALUE_LOCATION, location);
+
+    }
 
 }
+//    public void clickSpecificLocation(String location){
+//        List<WebElement> locations = driver.findElements(By.xpath("//div[@class='dropdown dropdown_location']//ul//li"));
+//        for (int i = 0; i <locations.size() ; i++ ){
+//            if(locations.get(i).getText().contains(location)){
+//                locations.get(i).click();
+
+
+
+
+
+
+
 
 

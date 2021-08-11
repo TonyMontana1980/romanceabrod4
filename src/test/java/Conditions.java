@@ -55,21 +55,23 @@ public class Conditions extends BaseUI {
     }
 
     @Test
-    public void test4(){
+    public void test4() {
 
         mainPage.clickJoinButton();
-        mainPage.completeFirstOfRegistration();
-        mainPage.completeSecondPartOfRegistration();
+        mainPage.completeFirstOfRegistration(Data.email, Data.password);
+        mainPage.completeSecondPartOfRegistration(mainPage.generateNewNumber(Data.nickname, 5), Data.phone,
+                Data.month, Data.day, Data.year, Data.city, Data.location);
 
-        WebElement checkbox = driver.findElement(Locators.CHECK_BOX);
+        WebElement checkbox = driver.findElement(Locators.CHECKBOX_CONFIRMATION);
 
-        if (!checkbox.isSelected()){
-           checkbox.click();
+        if (!checkbox.isSelected()) {
+            checkbox.click();
             System.out.println("Checkbox is selected!");
 
         }
 
     }
+
     @Test
     public void test5() {
         List<WebElement> links = driver.findElements(By.xpath("//ul[@class='navbar-nav']//li"));
@@ -189,31 +191,55 @@ public class Conditions extends BaseUI {
 
     @Test
     public void test9() {
-      //  mainPage.ajaxClick(Locators.TAB_OF_MAIN_PAGE,  3);
-  // mainPage.performClick(Locators.TAB_OF_MAIN_PAGE, 5);
-     //mainPage.javaWaitSec(3);
-   //mainPage.scrollToBottomOfPage();
+        //  mainPage.ajaxClick(Locators.TAB_OF_MAIN_PAGE,  3);
+        // mainPage.performClick(Locators.TAB_OF_MAIN_PAGE, 5);
+        //mainPage.javaWaitSec(3);
+        //mainPage.scrollToBottomOfPage();
         //driver.findElement(Locators.TAB_OF_JOIN_TODAY).click();
         //driver.findElement(Locators.TAB_OF_PHONE).click();
-       // driver.findElement(Locators.TAB_OF_EMAIL).click();
+        // driver.findElement(Locators.TAB_OF_EMAIL).click();
         //driver.findElement(Locators.TAB_OF_YOUTUBE).click();
         //driver.findElement(Locators.TAB_OF_FACEBOOK).click();
-       // driver.findElement(Locators.TAB_OF_PAYPAL).click();
+        // driver.findElement(Locators.TAB_OF_PAYPAL).click();
         //driver.findElement(Locators.HOW_WE_WORK).click();
         //driver.findElement(Locators.PRETTY_WOMEN).click();
-       // driver.findElement(Locators.PHOTOS).click();
+        // driver.findElement(Locators.PHOTOS).click();
         //driver.findElement(Locators.GIFTS).click();
         //driver.findElement(Locators.HOME).click();
         //driver.findElement(Locators.TOUR_TO_UKRAINE).click();
         //driver.findElement(Locators.BLOG).click();
-       // driver.findElement(Locators.SIGN_IN).click();
+        // driver.findElement(Locators.SIGN_IN).click();
         driver.findElement(Locators.REGISTRATION_B).click();
 
 
     }
 
-}
 
+
+
+   // @Test
+//    public void test10(String yourname, String youremail, String subject, String message,
+//                                                 String securitycode) {
+//        mainPage.ajaxClick(Locators.TAB_OF_MAIN_PAGE,  2);
+//        mainPage.javaWaitSec(3);
+//        mainPage.scrollToBottomOfPage();
+//      driver.findElement(Locators.CONTACT_US).click();
+//      driver.findElement(Locators.LIST_REASON).click();
+//
+//      driver.findElement(Locators.TEXT_FIELD_YOURNAME).sendKeys(yourname);
+//
+//      driver.findElement(Locators.TEXT_FIELD_YOUREMAIL).sendKeys(youremail);
+//
+//      driver.findElement(Locators.TEXT_FIELD_SUBJECT).sendKeys(subject);
+//
+//      driver.findElement(Locators.TEXT_FIELD_MESSAGE).sendKeys(message);
+//
+//      driver.findElement(Locators.TEXT_FIELD_SECURITYCODE).sendKeys(securitycode);
+//      driver.findElement(Locators.SEND_BUTTON).click();
+
+
+    //}
+}
 
 
 

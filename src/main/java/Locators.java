@@ -6,6 +6,17 @@ public class Locators {
     //Media page
    public static final By LINK_MEDIA = By.cssSelector("a[href='https://romanceabroad.com/media/index']");
 
+   //Contact Us Page
+   public static final By CONTACT_US = By.xpath("//div[@class='footer-menu-list-group-item-text']");
+   public static final By LIST_REASON = By.xpath("//select[@name='id_reason']//option[@value='2']");
+   public static final By TEXT_FIELD_YOURNAME = By.xpath("//input[@name='user_name']");
+   public static final By TEXT_FIELD_YOUREMAIL = By.xpath("//input[@name='user_email']");
+   public static final By TEXT_FIELD_SUBJECT = By.xpath("//input[@name='subject']");
+   public static final By TEXT_FIELD_MESSAGE = By.xpath("//textarea[@name='message']");
+   public static final By TEXT_FIELD_SECURITYCODE = By.xpath("//input[@name='captcha_code']");
+   public static final By SEND_BUTTON = By.xpath("//input[@name='btn_save']");
+
+
 
 //Registration
     public static final  By BUTTON_REGISTRATION = By.xpath("//button[@id='show-registration-block']");
@@ -16,11 +27,18 @@ public class Locators {
     public static final  By TEXT_FIELD_NICKNAME = By.cssSelector("#nickname");
     public static final  By TEXT_FIELD_PHONE = By.cssSelector("input[name='data[phone]']");
 
-    public static final  By DAY_FIELD = By.xpath("//li[@data-handler='selectDay']//a[text()='2']");
-    public static final  By MONTH_FIELD = By.xpath("//li[@data-handler='selectMonth']//a[text()='May']");
-    public static final  By YEAR_FIELD = By.xpath("//li[@data-handler='selectYear']//a[text()='2001']");
+    public static final  By LIST_DAYS = By.cssSelector("#daySelect");
+    public static final  By LIST_MONTHS = By.cssSelector("#monthSelect");
+    public static final  By LIST_YEARS = By.cssSelector("#yearSelect");
+    public static final  By LIST_VALUE_DAY = By.xpath("//li[@data-handler='selectDay']");
+    public static final  By LIST_VALUE_MONTH = By.xpath("//li[@data-handler='selectMonth']");
+    public static final  By LIST_VALUE_YEAR = By.xpath("//li[@data-handler='selectYear']");
+    public static final By CHECKBOX_CONFIRMATION = By.cssSelector("input#confirmation");
+    public static final By LIST_VALUE_LOCATION = By.xpath("//div[@class='dropdown dropdown_location']//ul//li");
+    public static final By AUTOFILLING_FORM_LOCATION = By.xpath("//input[@name='region_name']");
 
-    public static final By CHECK_BOX = By.cssSelector("input#confirmation");
+
+
 //Search page
     public static final By LINK_SEARCH = By.xpath("//a[@href='https://romanceabroad.com/users/search']");
     //Lesson 14 Xpath

@@ -8,6 +8,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.asserts.SoftAssert;
+
 import java.lang.reflect.Method;
 
 public class BaseUI {
@@ -15,6 +16,7 @@ public class BaseUI {
     WebDriverWait wait;
     MainPage mainPage;
     SearchPage searchPage;
+    ContactUsPage contactUsPage;
     SoftAssert softAssert = new SoftAssert();
 
 
@@ -24,35 +26,38 @@ public class BaseUI {
 
         // Check if parameter passed from TestNG is 'firefox'
         if (browser.equalsIgnoreCase("firefox")) {
-                // Create firefox instance
-                System.setProperty("webdriver.gecko.driver", "geckodriver");
-                driver = new FirefoxDriver();
+            // Create firefox instance
+            System.setProperty("webdriver.gecko.driver", "geckodriver");
+            driver = new FirefoxDriver();
 
-            }
-            // Check if parameter passed as 'chrome'
-            else if (browser.equalsIgnoreCase("chrome")) {
-                // Set path to chromedriver
-                System.setProperty("webdriver.chrome.driver", "chromedriver");
-                // Create chrome instance
-                driver = new ChromeDriver();
-                driver.get("chrome://settings/clearBrowserData");
-            } else if (browser.equalsIgnoreCase("IE")) {
-                System.setProperty("webdriver.ie.driver", "IEDriverServer.exe");
-                driver = new InternetExplorerDriver();
-                driver.manage().deleteAllCookies();
+        }
+        // Check if parameter passed as 'chrome'
+        else if (browser.equalsIgnoreCase("chrome")) {
+            // Set path to chromedriver
+            System.setProperty("webdriver.chrome.driver", "chromedriver");
+            // Create chrome instance
+            driver = new ChromeDriver();
+            driver.get("chrome://settings/clearBrowserData");
+        } else if (browser.equalsIgnoreCase("IE")) {
+            System.setProperty("webdriver.ie.driver", "IEDriverServer.exe");
+            driver = new InternetExplorerDriver();
+            driver.manage().deleteAllCookies();
 
 
-            } else {
-                System.setProperty("webdriver.chrome.driver", "chromedriver");
-                driver = new ChromeDriver();
-                driver.get("chrome://settings/clearBrowserData");
+        } else {
+            System.setProperty("webdriver.chrome.driver", "chromedriver");
+            driver = new ChromeDriver();
+            driver.get("chrome://settings/clearBrowserData");
 
-            }
-               wait = new WebDriverWait(driver, 20);
-               mainPage = new MainPage(driver, wait);
-               searchPage = new SearchPage(driver, wait);
-               driver.manage().window().maximize();
-               driver.get(Data.mainUrl);
+        }
+        wait = new WebDriverWait(driver, 20);
+        mainPage = new MainPage(driver, wait);
+        searchPage = new SearchPage(driver, wait);
+        contactUsPage = new ContactUsPage(driver, wait);
+        driver.manage().window().maximize();
+        //driver.get(Data.mainUrl);
+        driver.get(Data.expectedContactUs);
+
 
     }
 
@@ -61,7 +66,6 @@ public class BaseUI {
         // driver.quit();
 
     }
-
 
 
 }

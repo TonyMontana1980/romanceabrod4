@@ -8,10 +8,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.beans.PropertyChangeListener;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 
@@ -154,8 +150,9 @@ public class BaseActions {
         System.out.println("Total links are" + links.size());
 
     }
-//Method for link verification
-    public void verifyLinkActive (String linkUrl){
+
+    //Method for link verification
+    public void verifyLinkActive(String linkUrl) {
         try {
             URL url = new URL(linkUrl);
             HttpURLConnection httpURLConnect = (HttpURLConnection) url.openConnection();
@@ -167,28 +164,39 @@ public class BaseActions {
                 System.out.println(linkUrl + " - " + httpURLConnect.getResponseMessage() + " - " + httpURLConnect.getResponseMessage());
             }
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
     }
 
 
-         public int getSizeDropDownList(By locator){
-             try {
-                 WebElement element = driver.findElement(locator);
-                 ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
-                 Select select = new Select(driver.findElement(locator));
-                 return select.getOptions().size();
+    public int getSizeDropDownList(By locator) {
+        try {
+            WebElement element = driver.findElement(locator);
+            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+            Select select = new Select(driver.findElement(locator));
+            return select.getOptions().size();
 
-             } catch (NoSuchElementException e) {
-                 System.out.println("getSizeDropDownList error");
+        } catch (NoSuchElementException e) {
+            System.out.println("getSizeDropDownList error");
 
-             }
-            return 0;
-             }
+        }
+        return 0;
+    }
 
-         }
+    public void clickValueOfLists(By locator, String text) {
+        List<WebElement> elements = driver.findElements(locator);
+        for (int i = 0; i < elements.size(); i++) {
+            WebElement elementOfList = elements.get(i);
+            String value = elementOfList.getText();
+            if (value.contains(text)) {
+                elementOfList.click();
+
+            }
+        }
+    }
+}
 
 
 
