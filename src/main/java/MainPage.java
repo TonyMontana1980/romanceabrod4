@@ -47,13 +47,13 @@ public class MainPage extends BaseActions {
         clickValueOfLists(Locators.LIST_VALUE_LOCATION, location);
 
     }
+   public void clickTabBlog(){
+        driver.findElement(Locators.LINK_BLOG).click();
 
+
+   }
 }
-//    public void clickSpecificLocation(String location){
-//        List<WebElement> locations = driver.findElements(By.xpath("//div[@class='dropdown dropdown_location']//ul//li"));
-//        for (int i = 0; i <locations.size() ; i++ ){
-//            if(locations.get(i).getText().contains(location)){
-//                locations.get(i).click();
+
 
 
 
