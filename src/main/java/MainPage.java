@@ -19,6 +19,7 @@ public class MainPage extends BaseActions {
 
     public void completeFirstOfRegistration(String email, String password) {
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(Locators.TEXT_FIELD_EMAIL)));
         driver.findElement(Locators.TEXT_FIELD_EMAIL).sendKeys(email);
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(Locators.TEXT_FIELD_PASSWORD)));
         driver.findElement(Locators.TEXT_FIELD_PASSWORD).sendKeys(password);
@@ -28,13 +29,14 @@ public class MainPage extends BaseActions {
 
     public void completeSecondPartOfRegistration(String nickname, String phone, String month, String day,
                                                  String year, String city, String location) {
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
         driver.findElement(Locators.TEXT_FIELD_NICKNAME).sendKeys(nickname);
 
         driver.findElement(Locators.LIST_DAYS).click();
         clickValueOfLists(Locators.LIST_VALUE_DAY, day);
 
         driver.findElement(Locators.LIST_MONTHS).click();
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(Locators.LIST_VALUE_MONTH)));
         clickValueOfLists(Locators.LIST_VALUE_MONTH, month);
 
         driver.findElement(Locators.LIST_YEARS).click();
@@ -44,6 +46,7 @@ public class MainPage extends BaseActions {
         driver.findElement(Locators.CHECKBOX_CONFIRMATION).click();
 
         driver.findElement(Locators.AUTOFILLING_FORM_LOCATION).sendKeys(city);
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(Locators.LIST_VALUE_LOCATION)));
         clickValueOfLists(Locators.LIST_VALUE_LOCATION, location);
 
     }

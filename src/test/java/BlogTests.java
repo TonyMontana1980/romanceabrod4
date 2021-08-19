@@ -16,16 +16,18 @@ public class BlogTests extends BaseUI {
         for (int i = 0; i < linksOfArticles.size(); i++) {
             WebElement link = linksOfArticles.get(i);
             nameOfArticle = link.getText();
-            if (nameOfArticle.contains("How it works")){
-                continue;
+            if (nameOfArticle.contains("How it works")) {
             }
-            if (nameOfArticle.contains("Kharkov dating agency")){
-                continue;
+            else if (nameOfArticle.contains("Kharkov dating agency")) {
             }
-            link.click();
-            titleOfArticle = blogPage.getAnyTitle();
-            Assert.assertEquals(nameOfArticle, titleOfArticle);
-            linksOfArticles = blogPage.collectAllLinksOfArticles();
+            else if (nameOfArticle.contains("Kiev dating agency")) {
+
+            } else {
+                link.click();
+                titleOfArticle = blogPage.getAnyTitle();
+                Assert.assertEquals(nameOfArticle, titleOfArticle);
+                linksOfArticles = blogPage.collectAllLinksOfArticles();
+            }
         }
 
     }
