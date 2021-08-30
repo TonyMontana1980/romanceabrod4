@@ -13,7 +13,7 @@ public class ContactUsPage extends BaseActions {
     public void completeContactAdministratorForm(String yourname, String youremail, String subject, String message,
                                                  String securitycode) {
 
-        driver.findElement(Locators.CONTACT_US).click();
+
         driver.findElement(Locators.LIST_REASON).click();
 
         driver.findElement(Locators.TEXT_FIELD_YOURNAME).sendKeys(yourname);

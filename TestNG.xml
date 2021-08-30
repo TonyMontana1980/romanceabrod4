@@ -27,6 +27,12 @@
         <parameter name="browser" value="chrome"/>
 
         <classes>
+            <class name ="BlogTests"/>
+            <class name ="Conditions"/>
+            <class name ="ContactUsTest"/>
+            <class name ="MainPageTest1"/>
+            <class name ="MediaTest"/>
+            <class name ="SearchTests"/>
             <class name ="RegistrationTest">
 
             </class>

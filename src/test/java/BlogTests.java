@@ -17,15 +17,16 @@ public class BlogTests extends BaseUI {
             WebElement link = linksOfArticles.get(i);
             nameOfArticle = link.getText();
             if (nameOfArticle.contains("How it works")) {
+                Assert.assertEquals(nameOfArticle, "How it works" );
             }
             else if (nameOfArticle.contains("Kharkov dating agency")) {
+                Assert.assertEquals(nameOfArticle, "Kharkov dating agency" );
             }
             else if (nameOfArticle.contains("Kiev dating agency")) {
+                Assert.assertEquals(nameOfArticle, "Kiev dating agency" );
 
             } else {
                 link.click();
-                titleOfArticle = blogPage.getAnyTitle();
-                Assert.assertEquals(nameOfArticle, titleOfArticle);
                 linksOfArticles = blogPage.collectAllLinksOfArticles();
             }
         }

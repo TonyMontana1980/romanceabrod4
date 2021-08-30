@@ -55,10 +55,10 @@ public class BaseUI {
         mainPage = new MainPage(driver, wait);
         searchPage = new SearchPage(driver, wait);
         blogPage = new BlogPage(driver, wait);
-       // contactUsPage = new ContactUsPage(driver, wait);
+        contactUsPage = new ContactUsPage(driver, wait);
         driver.manage().window().maximize();
         driver.get(Data.mainUrl);
-        //driver.get(Data.expectedContactUs);
+
 
 
     }

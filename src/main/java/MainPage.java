@@ -55,6 +55,10 @@ public class MainPage extends BaseActions {
 
 
    }
+   public void clickLinkMedia(){
+       wait.until(ExpectedConditions.elementToBeClickable(Locators.LINK_MEDIA));
+       driver.findElement(Locators.LINK_MEDIA).click();
+   }
 }
 
 

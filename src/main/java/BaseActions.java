@@ -200,8 +200,32 @@ public class BaseActions {
     public String getAnyTitle() {
         String title = driver.findElement(Locators.H1_TITLE).getText();
         return title;
+
+
     }
+
+    public void clickContactUsLink() {
+        driver.findElement(Locators.CONTACT_US).click();
+    }
+
+
+    public void searchLink(){
+        driver.findElement(Locators.LINK_SEARCH);
+    }
+
+    public void clickPlayButtonLink(){
+        driver.findElement(By.xpath("//button[@class='ytp-large-play-button ytp-button']")).click();
+
+    }
+
+    public void clickRegistrationButton(){
+        driver.findElement(Locators.REGISTRATION_B).click();
+    }
+
+
 }
+
+
 
 
 

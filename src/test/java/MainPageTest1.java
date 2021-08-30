@@ -12,8 +12,7 @@ public class MainPageTest1 extends BaseUI {
         Thread.sleep(5000);
         WebElement ele = driver.findElement(By.xpath("//iframe[@src='https://www.youtube.com/embed/RRECuJzm3IY?start=85']"));
         driver.switchTo().frame(ele);
-        driver.findElement(By.xpath("//button[@class='ytp-large-play-button ytp-button']")).click();
-
+        mainPage.clickPlayButtonLink();
 
     }
 
@@ -21,7 +20,7 @@ public class MainPageTest1 extends BaseUI {
     public void testLinksOnMainPage() {
         mainPage.checkLinksOnWebPage("//a", "href");
         mainPage.checkLinksOnWebPage("//img", "src");
-        driver.findElement(Locators.LINK_SEARCH);
+        mainPage.searchLink();
         mainPage.checkLinksOnWebPage("//a", "href");
         mainPage.checkLinksOnWebPage("//img", "src");
 

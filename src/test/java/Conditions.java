@@ -209,7 +209,7 @@ public class Conditions extends BaseUI {
         //driver.findElement(Locators.TOUR_TO_UKRAINE).click();
         //driver.findElement(Locators.BLOG).click();
         // driver.findElement(Locators.SIGN_IN).click();
-        driver.findElement(Locators.REGISTRATION_B).click();
+        mainPage.clickRegistrationButton();
 
 
     }

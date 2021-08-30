@@ -4,6 +4,8 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.concurrent.TimeUnit;
+
 
 public class SearchTests extends BaseUI {
     String currentUrlSearch;
@@ -14,31 +16,18 @@ public class SearchTests extends BaseUI {
 
 
 
-   /* @Test
+    @Test
     public void testSearchPage() {
         driver.findElement(Locators.LINK_SEARCH).click();
         currentUrlSearch = driver.getCurrentUrl();
         System.out.println(currentUrlSearch);
         Assert.assertEquals(currentUrlSearch, Data.expectedUrlSearch);
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        // Select select = new Select(driver.findElement(By.xpath("//div[@class='form-inline']//select")));
-        Select select = new Select(driver.findElement(Locators.DROP_DOWN_LIST_SORT_AGE));
-        Select select = new Select(driver.findElement(Locators.DROP_DOWN_LIST_SORT_AGE));
-        //select.selectByValue("date_created");
-        select.selectByValue("22");
-
-        // WebElement dropDownListSortByAge = driver.findElement(Locators.DROP_DOWN_LIST_SORT_AGE);
-
-
+        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        searchPage.getDropDownListByText(driver.findElement(Locators.DROP_DOWN_LIST_SORT_AGE), "22");
         WebElement dropDownListSortBy = driver.findElement(Locators.DROP_DOWN_LIST_SORT_BY);
         searchPage.getDropDownListByValue(dropDownListSortBy, "date_created");
 
-    }*/
+    }
 
     @Test (priority = 2, enabled = testCase12, groups = {"ie", "user","admin"})
     public void testSearchPage1TestCase12() {
@@ -56,8 +45,6 @@ public class SearchTests extends BaseUI {
 @Test (priority = 3, enabled = testCase13, groups = {"user","admin"})
     public void verificationsWebTestCase13() {
         Assert.assertEquals("Web", "Web");
-        // Assert.assertTrue(driver.findElement(By.xpath("//a")).isSelected(), "Element is not displayed");
-      // Assert.fail("Element is not displayed");
 
     }
 
@@ -79,17 +66,7 @@ public class SearchTests extends BaseUI {
             currentUrlSearch = driver.getCurrentUrl();
             System.out.println(currentUrlSearch);
             Assert.assertEquals(currentUrlSearch, Data.expectedUrlSearch);
-            try {
-                Thread.sleep(3000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
-            // Select select = new Select(driver.findElement(By.xpath("//div[@class='form-inline']//select")));
-            //Select select = new Select(driver.findElement(Locators.DROP_DOWN_LIST_SORT_AGE));
-           // Select select = new Select(driver.findElement(Locators.DROP_DOWN_MAX_AGEX));
-
-           // select.selectByValue("22");
+            driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
             WebElement dropDownListSortBy = driver.findElement(Locators.DROP_DOWN_LIST_SORT_BY);
             searchPage.getDropDownListByValue(dropDownListSortBy, "date_created");
 
