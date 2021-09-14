@@ -23,8 +23,12 @@ public class MainPage extends BaseActions {
         driver.findElement(Locators.TEXT_FIELD_EMAIL).sendKeys(email);
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(Locators.TEXT_FIELD_PASSWORD)));
         driver.findElement(Locators.TEXT_FIELD_PASSWORD).sendKeys(password);
+         }
+
+    public void clickNextButton() {
         wait.until(ExpectedConditions.elementToBeClickable(Locators.BUTTON_NEXT));
         driver.findElement(Locators.BUTTON_NEXT).click();
+
     }
 
     public void completeSecondPartOfRegistration(String nickname, String phone, String month, String day,
@@ -50,15 +54,17 @@ public class MainPage extends BaseActions {
         clickValueOfLists(Locators.LIST_VALUE_LOCATION, location);
 
     }
-   public void clickTabBlog(){
+
+    public void clickTabBlog() {
         driver.findElement(Locators.LINK_BLOG).click();
 
 
-   }
-   public void clickLinkMedia(){
-       wait.until(ExpectedConditions.elementToBeClickable(Locators.LINK_MEDIA));
-       driver.findElement(Locators.LINK_MEDIA).click();
-   }
+    }
+
+    public void clickLinkMedia() {
+        wait.until(ExpectedConditions.elementToBeClickable(Locators.LINK_MEDIA));
+        driver.findElement(Locators.LINK_MEDIA).click();
+    }
 }
 
 

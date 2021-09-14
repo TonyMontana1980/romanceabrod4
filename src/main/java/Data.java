@@ -4,10 +4,14 @@ public class Data {
 
 
     //Registration data
-    public static final String email = "12@gmail.com";
+    public static final String email1 = "11@gmail.com";
+    public static final String email2 = "11yahoo.com";
+    public static final String email3 = "11@mail.com";
     public static final String password = "1188Bux@";
-    public static final String nickname = "paul454";
+    public static final String nickname1part = "Nick";
+    public static final String nickname = MainPage.generateNewNumber(nickname1part, Data.lenthSecondPartOfNickname);
     public static final String phone = "45477700";
+    public static final int lenthSecondPartOfNickname = 5;
 
     public static final String day = "1";
     public static final String month = "May";
